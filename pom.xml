@@ -28,6 +28,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.2.0.RELEASE</version>
         </dependency>
+        <!-- 添加必要的依赖，例如 spring-boot-starter-web 如果你构建的是 web 应用 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- 其他依赖项 -->
     </dependencies>
 
     <dependencyManagement>
@@ -41,5 +47,26 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 显式指定主类（如果有必要） -->
+                    <mainClass>com.demo.Hello</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
